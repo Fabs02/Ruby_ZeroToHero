@@ -14,10 +14,11 @@ Ele tem um sistema de threading independente do Sistema Operacional. Portanto, p
 ## 📚 Índice
 * [Onde estudar Ruby](#onde-estudar-ruby)
 * [Conceitos Básicos](#conceitos-básicos)
-  * [O que é uma variável?]()
-  * [Convenções sobre váriáveis]()
-  * [Tipos de Dados]()
-  * [Tipagem Dinâmica]()
+  * [O que é uma variável?](#o-que-é-uma-variável)
+  * [Convenções sobre váriáveis](#convenções-sobre-variáveis)
+  * [Tipos de Dados](#tipos-de-dados)
+  * [Tipagem Dinâmica](#tipagem-dinâmica)
+  * [Operadores Matemáticos](#operadores-matemáticos)
 
 ## Onde estudar Ruby
 
@@ -131,3 +132,22 @@ Os principais tipos de dados são:
       
 ### Operadores Matemáticos
 
+Para resolver operações matemáticas no ruby contamos com a seguinte lista de operadores aritméticos:
+
+* (+) - Adição 
+* (–) - Subtração
+* (*) - Multiplicação
+* (/) - Divisão
+* (%) - Módulo - Será a sobra da divisão entre o primeiro pelo segundo.
+* (**) - Expoente 
+
+      10 + 5  # return: 15
+      10 - 5  # return: 5
+      10 * 5  # return: 50
+      10 / 5  # return: 2
+      10 / 4  # return: 2
+      10 ** 2  # return: 100
+   
+> Operações aritmética sempre terá apenas um resultado.
+
+### Entrada / Saída
