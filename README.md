@@ -19,6 +19,7 @@ Ele tem um sistema de threading independente do Sistema Operacional. Portanto, p
   * [Tipos de Dados](#tipos-de-dados)
   * [Tipagem Dinâmica](#tipagem-dinâmica)
   * [Operadores Matemáticos](#operadores-matemáticos)
+  * [Entrada / Saída](#entrada--saída)
 
 ## Onde estudar Ruby
 
@@ -151,3 +152,36 @@ Para resolver operações matemáticas no ruby contamos com a seguinte lista de 
 > Operações aritmética sempre terá apenas um resultado.
 
 ### Entrada / Saída
+
+Essas duas operações manipulam dados, com a diferença que a entrada ocorre quando o programa lê dados que podem ter sido recebidos de um teclado, de um arquivo, ou então de outro programa e a saída é um dado produzido pelo programa que pode ser exibido em uma tela, enviado para um arquivo ou então para outro programa.
+
+Vamos fazer esse exemplo utilizando o método de Entrada 'gets':
+
+      # Saída de dado
+      puts "Digite o nome:"
+      # Entrada de dado
+      nome = gets.chomp  --> Digito Michel
+      
+      # Saída de dado
+      # use códigos ruby dentro de uma string com #{code}
+      puts "Hello #{nome}"
+      
+      #return: Hello Michel
+      
+***OBS:*** Códigos ruby, funcionam apenas se for utilizado aspas duplas (""), aspas simples ('') só para texto.
+
+Exemplo 2:
+
+      # Saída de dado
+      puts 'Digite o primeiro valor:'
+      # Entrada de dado
+      valor1 = gets.to_i  # to_i transforma o dado recebido em um 'intenger'
+      puts 'Digite o segundo valor:'
+      valor2 = gets.to_i
+      
+      total = value1 + value2
+      
+      puts "A soma dos dados foi: #{total}"
+      
+Exemplo com uma operação aritimética.
+
