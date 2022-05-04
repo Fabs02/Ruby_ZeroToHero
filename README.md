@@ -20,6 +20,9 @@ Ele tem um sistema de threading independente do Sistema Operacional. Portanto, p
   * [Tipagem Dinâmica](#tipagem-dinâmica)
   * [Operadores Matemáticos](#operadores-matemáticos)
   * [Entrada / Saída](#entrada--saída)
+* [Estruturas de Controle](#estruturas-de-controle)
+  * [Condicional](#condicional)
+  * [Iteração](#iteração)
 
 ## Onde estudar Ruby
 
@@ -185,3 +188,182 @@ Exemplo 2:
       
 Exemplo com uma operação aritimética.
 
+## Estruturas de Controle
+
+Tratam-se de códigos que escrevemos em nossos programas para analisar dados e decidir qual caminho seguir. Divide-se em dois tipos, Condicional e Iteração. Nesta aula você aprenderá como utilizá-los.
+
+### Condicional
+
+Tipo de estrutura de controle que executa um trecho de código dependendo do resultado de uma condição.
+
+* ***If***
+     * Expressão que verifica se uma condição é verdadeira(true), e a partir deste resultado determina se as instruções dentro de seu corpo serão ou não executadas.
+    *     Teste no seu irb
+       
+          clima = 'frio'
+          
+          if clima == 'frio'
+            casaco = 'preciso'
+          end
+          
+          puts "Hoje eu #{casaco} levar casaco."
+          #return: Hoje eu preciso levar casaco.
+          
+* ***Else***
+
+     * Informa o que fazer quando a verificação de uma condição if for falsa.
+    *     Teste no seu irb
+       
+          clima = 'quente'
+          
+          if clima == 'frio'
+            casaco = 'preciso'
+          else 
+            casaco = 'não preciso'
+          end
+          
+          puts "Hoje eu #{casaco} levar casaco."
+          #return: Hoje eu não preciso levar casaco.
+          
+* ***Elsif***
+
+     * Utilizado quando tem a necessidade de verificar mais de uma condição em um if.
+    *     Teste no seu irb
+       
+          clima = 'nem quente nem frio'
+          
+          if clima == 'frio'
+            casaco = 'preciso'
+          elsif == 'nem quente nem frio'
+            casaco = 'talvez precise'
+          else 
+            casaco = 'não preciso'
+          end
+          
+          puts "Hoje eu #{casaco} levar casaco."
+          #return: Hoje eu talvez precise levar casaco.
+          
+* ***Unless***
+
+     * Enquanto o if é executado quando sua condição é verdadeira, o unless ocorre de forma contrária. É executado apenas quando a condição é falsa.
+    *     Teste no seu irb
+       
+          estado_do_produto = 'fechado'
+          
+          unless estado_do_produto == 'aberto'
+            troca = 'pode'       
+          else 
+            troca = 'não pode'
+          end
+          
+          puts "O produto #{troca} ser trocado."
+          #return: O produto pode ser trocado
+          
+* ***Case***
+
+     * Instrução muito parecida com o if. Ele se enquadra muito bem a situações com diversas condições. Sendo mais performático que o if com várias condições.
+    *     Teste no seu irb
+       
+          puts "Digite o mês em que nasceu:"
+          mes = gets.to_i
+          
+          case mes
+          when 1..3
+            puts 'você nasceu no inicio do ano'
+          when 4..6
+            puts 'você nasceu na primeira metade do ano'
+          when 7..9
+            puts 'você nasceu na segunda metade do ano'
+          when 10..12
+            puts 'você nasceu no final do ano'
+          else 
+            puts 'não foi possivel identificar'
+          end
+          
+     * Porque o ***Case*** é mais performático que o ***if***, em casos que tem multiplas condições?
+    *     Teste no seu irb
+       
+          puts "Digite o mês em que nasceu:"
+          mes = gets.to_i
+                  
+          # if mes == 1..3
+          # warning: integer literal in flip-flop
+          # só reconhece o 1
+          
+          if mes == 1
+            puts 'você nasceu no inicio do ano'
+          elsif mes == 2
+            puts 'você nasceu no inicio do ano'
+          .
+          .
+          end
+          
+          tente usar a gem 'byebug' e ver o procedimento completo.
+          # valor inputado
+          mes = 4  
+            --> if mes == 1 ? false
+             --> elsif mes == 2 ? false 
+              --> elsif mes == 3 ? false
+               --> elsif mes == 4 ? true
+               
+          --> case mes
+              when 1..3
+              --> when 4..6  # mais performático.
+
+     > Ao invés, de passar por todo efeito cascata, conferindo um por um, o case identifica o dado e segue direto para sua condicional.
+
+### Iteração
+
+Tipo de estrutura de controle que gerencia quantas vezes um trecho de código será executado. ( Looping )
+
+Estruturas de looping devem ser criado com cuidado, sempre com alguma válvula de escape, porque senão aquele código entrará em um looping eterno, até o computador ser forçado a desligar.
+
+* ***While***
+
+     * Instrução que repete um bloco de código enquanto sua condição é verdadeira.
+    *     Teste no seu irb
+
+          option = 0
+
+          while option =! 2 do
+            puts "Digite a opção desejada:"
+            puts '1 - cadastro no sistema'
+            puts '2 - sair do sistema'
+            puts 'Digite a opção desejada:'
+            option = gets.to_i
+          end
+
+* ***For***
+
+     * São usados para fazer um loop sobre uma coleção de elementos. Ao contrário de um loop while onde, se não tomarmos cuidado, podemos causar um laço infinito, os laços for têm um fim definido, já que estão em loop sobre um número finito de elementos.
+     * Em ruby essa estrutura é mais frequentemente usada para percorrer lista de objetos que tenham implementado o método each, que é um método que aceita um bloco de código e que depois o executa para cada elemento numa lista.
+    *     Teste no seu irb
+
+          frutas = ['Maçã', 'Uva', 'Morango']
+ 
+          for fruta in frutas 
+            puts fruta
+          end
+          
+* ***Times***
+
+     * Executa uma repetição por um especificado número de vezes.
+    *     Teste no seu irb
+
+          10.times do |i|
+              puts i
+          end
+
+* ***Loop***
+
+     * Ele cria um laço de repetição que só é parado quando uma instrução break for verdadeira.
+     * Se não tiver o break, o loop será eterno até travar o seu computador ou fechar o software.
+    *     Teste no seu irb
+
+          count = 1
+          loop do 
+            puts count
+            break if count == 10
+            # Incrementa a variável count
+            count += 1
+          end
